@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>Sohilsstmod.com — Apps</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#17243a;--text:#f5f7fb;--muted:#a8b4c8;--accent:#67e8a5;--line:#26364f}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#0b1220,#111d31 55%,#0b1220);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{width:min(1100px,92%);margin:auto}.top{padding:22px 0;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-size:22px;font-weight:800;letter-spacing:-.5px}.brand span{color:var(--accent)}.pill{border:1px solid #315344;color:var(--accent);border-radius:30px;padding:6px 11px;font-size:12px}
+.hero{padding:54px 0 30px}.eyebrow{color:var(--accent);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1.5px}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin:12px 0}.hero p{color:var(--muted);max-width:600px;margin:12px 0 24px}
+.search{display:flex;gap:10px;max-width:620px}.search input,.field{width:100%;background:#0d1728;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:13px 15px;font:inherit;outline:none}.search input:focus,.field:focus{border-color:var(--accent)}
+button,.btn{border:0;border-radius:12px;padding:12px 17px;background:var(--accent);color:#092016;font-weight:800;font:inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button:hover,.btn:hover{filter:brightness(1.07)}.secondary{background:#26364f;color:var(--text)}.section-head{display:flex;justify-content:space-between;align-items:center;margin:25px 0 16px;gap:10px}.section-head h2{margin:0;font-size:23px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px;margin-bottom:35px}
+.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}
+.app-head{display:flex;align-items:center;gap:13px}.app-icon{width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,#67e8a5,#38a8d8);display:grid;place-items:center;color:#092016;font-size:23px;font-weight:900;flex-shrink:0}
+.app-title{font-weight:800;font-size:17px;overflow-wrap:anywhere}.meta{font-size:12px;color:var(--muted)}.desc{color:var(--muted);font-size:14px;min-height:42px;margin:15px 0}
+.card-actions{display:flex;gap:8px;align-items:center}.card-actions .btn{flex:1}.delete{padding:10px 12px}
+.admin{margin:35px 0;background:#111c2d;border:1px solid var(--line);border-radius:18px;padding:22px}.admin h2{margin:0 0 5px}.admin p,.hint{color:var(--muted);font-size:13px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.form-grid .wide{grid-column:1/-1}
+.file{padding:12px;border:1px dashed #45617e;border-radius:12px;width:100%;color:var(--muted)}
+.notice{padding:12px 14px;border-radius:12px;background:#1c2a3d;border:1px solid #334761;color:#c8d6e8;font-size:13px;margin:15px 0}
+.empty{color:var(--muted);text-align:center;padding:35px;border:1px dashed var(--line);border-radius:16px}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px;margin-top:35px}
+@media(max-width:600px){.top{align-items:flex-start;flex-direction:column}.hero{padding-top:38px}.search{flex-direction:column}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <div class="brand">Sohilsstmod<span>.com</span></div>
+  <div class="pill">APP DOWNLOAD CENTER</div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Welcome to Sohilsstmod</div>
+    <h1>आपके पसंदीदा ऐप्स,<br><span style="color:var(--accent)">एक ही जगह।</span></h1>
+    <p>ऐप खोजें, जानकारी देखें और उपलब्ध होने पर डाउनलोड करें। नए ऐप केवल साइट के मालिक द्वारा जोड़े जाने के लिए हैं।</p>
+    <div class="search"><input id="search" type="search" placeholder="ऐप का नाम खोजें…"><button id="searchBtn">खोजें</button></div>
+  </section>
+
+  <div class="section-head"><h2>लेटेस्ट ऐप्स</h2><span class="meta" id="count">0 ऐप</span></div>
+  <section id="apps" class="grid"><div class="empty">अभी कोई ऐप अपलोड नहीं किया गया है।</div></section>
+
+  <section class="admin" id="admin">
+    <h2>मालिक का अपलोड पैनल</h2>
+    <p>यहाँ से अपने ऐप की जानकारी और APK/अन्य फ़ाइल जोड़ें।</p>
+    <div class="notice"><strong>ज़रूरी जानकारी:</strong> यह शुरुआती वेबसाइट आपके ब्राउज़र में ऐप्स सेव करती है। अभी अपलोड की गई फ़ाइलें केवल इसी डिवाइस/ब्राउज़र में दिखेंगी; सभी विज़िटर तक पहुँचाने के लिए बाद में सर्वर और सुरक्षित मालिक लॉगिन जोड़ना होगा।</div>
+    <form id="uploadForm">
+      <div class="form-grid">
+        <input class="field" id="appName" placeholder="ऐप का नाम" required maxlength="60">
+        <input class="field" id="version" placeholder="Version (जैसे 1.0)" maxlength="20">
+        <input class="field wide" id="description" placeholder="ऐप के बारे में छोटी जानकारी" maxlength="180">
+        <input class="field" id="category" placeholder="Category (जैसे Tools, Games)" maxlength="30">
+        <label class="file">ऐप फ़ाइल चुनें (APK/ZIP आदि)<br><input id="appFile" type="file" required></label>
+      </div>
+      <button type="submit">＋ ऐप अपलोड करें</button>
+    </form>
+    <p class="hint">अपलोड की गई फ़ाइल का आकार आपके ब्राउज़र की स्टोरेज सीमा पर निर्भर करता है। केवल वही ऐप साझा करें जिन्हें वितरित करने का अधिकार आपके पास है।</p>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="year"></span> Sohilsstmod.com · सुरक्षित और जिम्मेदारी से डाउनलोड करें।</div></footer>
+<script>
+const DB_NAME='sohilsstmod_apps', STORE='apps';
+let db;
+const $=id=>document.getElementById(id);
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open(DB_NAME,1);req.onupgradeneeded=()=>req.result.createObjectStore(STORE,{keyPath:'id',autoIncrement:true});req.onsuccess=()=>{db=req.result;resolve()};req.onerror=()=>reject(req.error)})}
+function allApps(){return new Promise((resolve,reject)=>{const r=db.transaction(STORE).objectStore(STORE).getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+function addApp(app){return new Promise((resolve,reject)=>{const r=db.transaction(STORE,'readwrite').objectStore(STORE).add(app);r.onsuccess=()=>resolve();r.onerror=()=>reject(r.error)})}
+function removeApp(id){return new Promise((resolve,reject)=>{const r=db.transaction(STORE,'readwrite').objectStore(STORE).delete(id);r.onsuccess=()=>resolve();r.onerror=()=>reject(r.error)})}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function render(){
+ const items=await allApps(), q=$('search').value.trim().toLowerCase();
+ const filtered=items.filter(a=>(a.name+' '+a.category+' '+a.description).toLowerCase().includes(q));
+ $('count').textContent=items.length+' ऐप';
+ if(!filtered.length){$('apps').innerHTML='<div class="empty">'+(items.length?'कोई मैच नहीं मिला।':'अभी कोई ऐप अपलोड नहीं किया गया है।')+'</div>';return}
+ $('apps').innerHTML=filtered.map(a=>`<article class="card">
+ <div class="app-head"><div class="app-icon">${esc((a.name||'A').slice(0,1).toUpperCase())}</div><div><div class="app-title">${esc(a.name)}</div><div class="meta">${esc(a.category||'App')} · ${esc(a.version||'Version उपलब्ध नहीं')}</div></div></div>
+ <div class="desc">${esc(a.description||'इस ऐप के बारे में जानकारी उपलब्ध नहीं है।')}</div>
+ <div class="meta" style="margin-bottom:12px">${esc(a.fileName)} · ${(a.size/1024/1024).toFixed(2)} MB</div>
+ <div class="card-actions"><a class="btn" href="${URL.createObjectURL(a.file)}" download="${esc(a.fileName)}">डाउनलोड</a><button class="secondary delete" data-delete="${a.id}" title="इस डिवाइस से हटाएँ">हटाएँ</button></div>
+ </article>`).join('');
+ document.querySelectorAll('[data-delete]').forEach(b=>b.addEventListener('click',async()=>{if(confirm('इस ब्राउज़र से यह ऐप हटाएँ?')){await removeApp(Number(b.dataset.delete));render()}}));
+}
+$('uploadForm').addEventListener('submit',async e=>{
+ e.preventDefault();const file=$('appFile').files[0];if(!file)return;
+ try{await addApp({name:$('appName').value.trim(),version:$('version').value.trim(),description:$('description').value.trim(),category:$('category').value.trim(),fileName:file.name,size:file.size,file});
+ $('uploadForm').reset();await render();alert('ऐप इस ब्राउज़र में सेव हो गया है।')}
+ catch(err){alert('अपलोड नहीं हो पाया। फ़ाइल छोटी करके फिर कोशिश करें।')}
+});
+$('search').addEventListener('input',render);$('searchBtn').addEventListener('click',render);
+$('year').textContent=new Date().getFullYear();
+openDB().then(render).catch(()=>{$('apps').innerHTML='<div class="empty">आपका ब्राउज़र लोकल ऐप स्टोरेज सपोर्ट नहीं कर रहा।</div>'});
+</script>
+</body>
+</html>
